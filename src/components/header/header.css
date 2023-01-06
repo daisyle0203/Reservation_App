@@ -11,7 +11,7 @@
   max-width: 1024px;
   margin: 20px 0px 100px 0px;
 }
-
+/* Take off the margin bottom on the list page */
 .headerContainer.listMode {
   margin: 20px 0px 0px 0px;
 }
