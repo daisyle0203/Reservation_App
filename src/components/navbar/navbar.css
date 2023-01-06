@@ -1,6 +1,6 @@
 .navbar {
   height: 50px;
-  background-color:#0B438A;
+  background-color: #293241;
   display: flex;
   justify-content: center;
 }
@@ -21,8 +21,8 @@
 .navButton {
   margin-left: 20px;
   border: none;
-  padding: 5px 10px;
+  padding: 7px 10px;
   cursor: pointer;
-  color: #0071c2;
-  border-radius: 7px
+  color: #293241;
+  border-radius: 7px;
 }

@@ -1,5 +1,5 @@
 .header {
-  background-color:#0B438A;
+  background-color:#3d5a80;
   color: white;
   display: flex;
   justify-content: center;
@@ -39,12 +39,53 @@
 }
 
 .headerBtn {
-  background-color: #0071c2;
-  color: white;
+  background-color: #98c1d9;
+  color: #293241;
   font-weight: 500;
-  border: white 1px solid;
+  border: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 7px;
 }
 
+
+.headerSearch {
+  height: 30px;
+  background-color: white;
+  border: 3px solid #e09f3e;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  max-width: 1024px;
+}
+
+.headerIcon {
+  color: lightgray;
+}
+
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerSearchInput {
+  border: none;
+  outline: none;
+}
+
+.headerSearchText {
+  color: lightgray;
+  cursor: pointer;
+}
+
+.date {
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+}
