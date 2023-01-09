@@ -28,14 +28,35 @@ router.put("/:id", async (req, res) => {
     res.status(500).json(error)
   }
 })
+
 //DELETE
-// router.delete("/:id", )
-//GET
-// router.get("/find/:id", )
-//GET ALL
-// router.get("/", )
-// router.get("/countByCity", )
-// router.get("/countByType", )
-// router.get("/room/:id", )
+router.delete("/:id", async (req, res) => {
+  try {
+    await Hotel.findByIdAndDelete(req.params.id)
+    res.status(200).json("Hotel has been deleted...")
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+//GET A SPECIFIC HOTEL
+router.get("/:id", async (req, res) => {
+  try {
+    const hotel = await Hotel.findById(req.params.id)
+    res.status(200).json(hotel)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+//GET ALL HOTELS
+router.get("/", async (req, res) => {
+  try {
+    const hotels = await Hotel.find()
+    res.status(200).json(hotels)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
 
 export default router
