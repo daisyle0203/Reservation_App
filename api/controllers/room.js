@@ -7,14 +7,19 @@ export const createRoom = async (req, res, next) => {
   const newRoom = new Room(req.body)
 
   try {
+    // save new room to the database
     const savedRoom = await newRoom.save()
+    // Update the hotel model with the new room id
     try {
+      // add room id to the hotel
       await Hotel.findByIdAndUpdate(hotelId, {
+        // push room id to the rooms array of the hotel model
         $push: { rooms: savedRoom._id },
       })
     } catch (err) {
       next(err)
     }
+    // send the saved room back to the client
     res.status(200).json(savedRoom)
   } catch (err) {
     next(err)

@@ -18,7 +18,7 @@ const RoomSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // unavailable Dates for reserved room, so nobody can book this room, bu default it is empty.
+    // unavailable Dates for reserved room, so nobody can book this room, but default it is empty.
     // eg: {number: 101, unavailableDates: [02.02.2023, 02.08.2023]}
     roomNumbers: [{ number: Number, unavailableDates: { type: [Date] } }], 
   },
