@@ -10,16 +10,16 @@ import { verifyAdmin } from "../utils/verifyToken.js"
 
 const router = express.Router()
 
-//CREATE
+//CREATE A HOTEL
 router.post("/",verifyAdmin, createHotel)
 
-//UPDATE
+//UPDATE A HOTEL BY ID
 router.put("/:id",verifyAdmin, updateHotel)
 
-//DELETE
+//DELETE A HOTEL BY ID
 router.delete("/:id",verifyAdmin, deleteHotel)
 
-//GET A SPECIFIC HOTEL
+//GET A SPECIFIC HOTEL BY ID
 router.get("/:id", getHotel)
 
 //GET ALL HOTELS
