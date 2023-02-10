@@ -1,7 +1,7 @@
-import "./list.css"
 import Navbar from "../../components/navbar/Navbar"
 import Header from "../../components/header/Header"
 import ListSearch from "../../components/listSearch/ListSearch"
+import "./list.css"
 
 const List = () => {
   return (
