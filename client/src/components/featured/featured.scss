@@ -1,3 +1,5 @@
+@import "../../style/style.scss";
+
 .featured {
   width: 100%;
   max-width: 1024px;
@@ -9,7 +11,7 @@
 
 .featuredItem {
   position: relative;
-  color: #fafafa;
+  color: $baseColor;
   border-radius: 10px;
   overflow: hidden;
   height: 250px;
@@ -19,12 +21,11 @@
 .featuredImg {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .featuredTitles {
   position: absolute;
   bottom: 20px;
   left: 20px;
-}/*# sourceMappingURL=featured.css.map */
+}

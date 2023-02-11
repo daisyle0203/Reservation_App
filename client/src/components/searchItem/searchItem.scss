@@ -1,5 +1,7 @@
+@import "../../style/style.scss";
+
 .searchItem {
-  border: 1px solid #d3d3d3;
+  border: 1px solid $textColor;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -11,8 +13,7 @@
 .siImg {
   width: 200px;
   height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .siDesc {
@@ -33,9 +34,8 @@
 
 .siTaxiOp {
   font-size: 12px;
-  background-color: #d4cdc2;
-  color: #28201f;
-  width: -moz-max-content;
+  background-color: $lightSecondaryColor;
+  color: $darkPrimaryColor;
   width: max-content;
   padding: 3px;
   border-radius: 5px;
@@ -52,13 +52,13 @@
 
 .siCancelOp {
   font-size: 12px;
-  color: #423e3d;
+  color: $secondaryColor;
   font-weight: bold;
 }
 
 .siCancelOpSubtitle {
   font-size: 12px;
-  color: #423e3d;
+  color: $secondaryColor;
 }
 
 .siDetails {
@@ -78,8 +78,8 @@
 }
 
 .siRating > button {
-  background-color: #28201f;
-  color: #fafafa;
+  background-color: $darkPrimaryColor;
+  color: $baseColor;
   padding: 5px;
   font-weight: bold;
   border: none;
@@ -98,15 +98,15 @@
 
 .siTaxOp {
   font-size: 12px;
-  color: #423e3d;
+  color: $secondaryColor;
 }
 
 .siCheckButton {
-  background-color: #423e3d;
-  color: #fafafa;
+  background-color: $secondaryColor;
+  color: $baseColor;
   font-weight: bold;
   padding: 10px 5px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-}/*# sourceMappingURL=searchItem.css.map */
+}

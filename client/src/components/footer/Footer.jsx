@@ -1,4 +1,4 @@
-import "./footer.css"
+import "./footer.scss"
 
 const Footer = () => {
   return (
@@ -45,7 +45,7 @@ const Footer = () => {
           <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="fText">Copyright © 2023 DaisyBooking. All rights reserved.</div>
+      <div className="fText">Copyright © 2023 StayZen. All rights reserved.</div>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+@import "../../style/style.scss";
+
 .listWrapper {
   width: 100%;
   max-width: 1024px;
@@ -7,18 +9,17 @@
 
 .listSearch {
   flex: 1;
-  background-color: #e3c49a;
+  background-color: $lightPrimaryColor;
   padding: 10px;
   border-radius: 10px;
   position: sticky;
   top: 10px;
-  height: -moz-max-content;
   height: max-content;
 }
 
 .lsTitle {
   font-size: 20px;
-  color: #28201f;
+  color: $darkPrimaryColor;
   margin-bottom: 10px;
 }
 
@@ -42,7 +43,7 @@
 .lsItem > span {
   height: 30px;
   padding: 5px;
-  background-color: #fafafa;
+  background-color: $baseColor;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -56,7 +57,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #28201f;
+  color: $darkPrimaryColor;
   font-size: 12px;
 }
 
@@ -66,8 +67,8 @@
 
 .listSearch > button {
   padding: 10px;
-  background-color: #c34d1b;
-  color: #fafafa;
+  background-color: $primaryColor;
+  color: $baseColor;
   border: none;
   width: 100%;
   font-weight: 500;
@@ -76,4 +77,4 @@
 
 .listResult {
   flex: 3;
-}/*# sourceMappingURL=listSearch.css.map */
+}

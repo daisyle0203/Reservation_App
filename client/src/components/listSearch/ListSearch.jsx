@@ -4,7 +4,7 @@ import { format } from "date-fns"
 import { DateRange } from "react-date-range"
 import SearchItem from "../../components/searchItem/SearchItem"
 import useFetch from "../../hooks/useFetch"
-import "./listSearch.css"
+import "./listSearch.scss"
 
 const ListSearch = () => {
   const location = useLocation()

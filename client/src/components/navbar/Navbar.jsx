@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "./navbar.css"
+import "./navbar.scss"
 
 const Navbar = () => {
   return (
@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="navContainer">
         <Link to="/" className="logo" style={{color: "inherit", textDecoration: "none"}}
         >
-        <span className="logo">DaisyBooking</span>
+        <span className="logo">StayZen</span>
         </Link>
         <div className="navItems">
           <button className="navButton">Sign up</button>

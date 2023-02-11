@@ -1,7 +1,9 @@
+@import "../../style/style.scss";
+
 .navbar {
   height: 50px;
   padding: 7px;
-  background-color: #28201f;
+  background-color: $darkPrimaryColor;
   display: flex;
   justify-content: center;
 }
@@ -9,14 +11,14 @@
 .navContainer {
   width: 100%;
   max-width: 1024px;
-  color: #fafafa;
+  color: $baseColor;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo {
-  font-family: "Tangerine", cursive;
+  font-family: $font;
   font-weight: 700;
   font-size: 25px;
   font-style: swap;
@@ -27,7 +29,7 @@
   border: none;
   padding: 7px 10px;
   cursor: pointer;
-  background-color: #c34d1b;
-  color: #fafafa;
+  background-color: $primaryColor;
+  color: $baseColor;
   border-radius: 7px;
-}/*# sourceMappingURL=navbar.css.map */
+}

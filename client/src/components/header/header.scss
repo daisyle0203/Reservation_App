@@ -1,6 +1,8 @@
+@import "../../style/style.scss";
+
 .header {
-  background-color: #d4cdc2;
-  color: #28201f;
+  background-color: $lightSecondaryColor;
+  color: $darkPrimaryColor;
   display: flex;
   justify-content: center;
   position: relative;
@@ -11,7 +13,6 @@
   max-width: 1024px;
   margin: 20px 0px 100px 0px;
 }
-
 /* Take off the margin bottom on the list page */
 .headerContainer.listMode {
   margin: 20px 0px 0px 0px;
@@ -30,7 +31,7 @@
 }
 
 .headerListItem.active {
-  border: 1px solid #fafafa;
+  border: 1px solid $baseColor;
   padding: 10px;
   border-radius: 20px;
 }
@@ -40,7 +41,7 @@
 }
 
 .headerLogo {
-  font-family: "Tangerine", cursive;
+  font-family: $font;
   font-size: 40px;
   font-weight: 700;
 }
@@ -50,8 +51,8 @@
 }
 
 .headerBtn {
-  background-color: #c34d1b;
-  color: #fafafa;
+  background-color: $primaryColor;
+  color: $baseColor;
   font-weight: 500;
   border: none;
   padding: 10px;
@@ -61,8 +62,8 @@
 
 .headerSearch {
   height: 30px;
-  background-color: #fafafa;
-  border: 3px solid #423e3d;
+  background-color: $baseColor;
+  border: 3px solid $secondaryColor;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -90,7 +91,7 @@
 }
 
 .headerSearchText {
-  color: #d3d3d3;
+  color: $textColor;
   cursor: pointer;
 }
 
@@ -104,9 +105,10 @@
   z-index: 2;
   position: absolute;
   top: 50px;
-  background-color: #fafafa;
-  color: #a4b3a4;
+  background-color: $baseColor;
+  color: $accentColor;
   border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
 }
 
@@ -136,4 +138,4 @@
 
 .optionCounterButton:disabled {
   cursor: not-allowed;
-}/*# sourceMappingURL=header.css.map */
+}

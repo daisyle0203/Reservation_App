@@ -13,7 +13,7 @@ import "react-date-range/dist/styles.css" // main css file
 import "react-date-range/dist/theme/default.css" // theme css file
 import { format } from "date-fns"
 import { useNavigate } from "react-router-dom"
-import "./header.css"
+import "./header.scss"
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -81,10 +81,9 @@ const Header = ({ type }) => {
         {/* HEADER TITLE */}
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">Make new memories.</h1>
+            <h1 className="headerTitle">Escape the chaos and book your next zenful stay with <span className="headerLogo">StayZen.</span></h1>
             <p className="headerDesc">
-              Get 25% off select hotels and start the new year creating new
-              memories with those you love most.
+            Find the perfect balance of comfort and affordability for your next vacation or business trip.
             </p>
             {/* SIGN UP BUTTON */}
             <button className="headerBtn">Sign up/ Register</button>
