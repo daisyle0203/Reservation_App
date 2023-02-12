@@ -8,7 +8,6 @@ import "./listSearch.scss"
 
 const ListSearch = () => {
   const location = useLocation()
-  console.log(location)
   const [destination, setDestination] = useState(
     location.state ? location.state.destination : ""
   )
@@ -27,7 +26,6 @@ const ListSearch = () => {
   const { data, loading, error, reFetch } = useFetch(
     `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   )
-  console.log(data)
 
   const handleClick = () => {
     reFetch()

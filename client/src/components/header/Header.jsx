@@ -15,6 +15,7 @@ import { format } from "date-fns"
 import { useNavigate } from "react-router-dom"
 import { SearchContext } from "../../context/SearchContext"
 import "./header.scss"
+import { AuthContext } from "../../context/AuthContext"
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("")
@@ -35,6 +36,8 @@ const Header = ({ type }) => {
 
   const navigate = useNavigate()
 
+  const { user } = useContext(AuthContext)
+
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -47,9 +50,9 @@ const Header = ({ type }) => {
   const { dispatch } = useContext(SearchContext)
 
   const handleSearch = () => {
-    // dispatch a new action to the reducer to update the state with the new search values 
+    // dispatch a new action to the reducer to update the state with the new search values
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } })
-    
+
     // navigate to the hotels page with the new search values in the state
     navigate("/hotels", { state: { destination, dates, options } })
   }
@@ -97,7 +100,7 @@ const Header = ({ type }) => {
               next vacation or business trip.
             </p>
             {/* SIGN UP BUTTON */}
-            <button className="headerBtn">Sign up/ Register</button>
+            {!user && <button className="headerBtn">Sign up/ Register</button>}
             {/* HEADER SEARCH BAR */}
             <div className="headerSearch">
               {/* PLACE INPUT */}
