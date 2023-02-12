@@ -1,5 +1,5 @@
 import "./hotel.scss"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Navbar from "../../components/navbar/Navbar"
 import Header from "../../components/header/Header"
 import MailList from "../../components/mailList/MailList"
@@ -13,16 +13,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { useLocation } from "react-router-dom"
 import useFetch from "../../hooks/useFetch"
+import { SearchContext } from "../../context/SearchContext"
 
 const Hotel = () => {
   const location = useLocation()
-  console.log(location)
   const id = location.pathname.split("/")[2]
   const [slideNumber, setSlideNumber] = useState(0)
   const [open, setOpen] = useState(false)
   const { data, loading, error } = useFetch(`/hotels/find/${id}`)
-  console.log(data)
-
+  const { dates } = useContext(SearchContext)
+  console.log(dates)
+  
   const handleOpen = (i) => {
     setSlideNumber(i)
     setOpen(true)

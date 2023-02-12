@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import {
   faBed,
   faCalendarDays,
@@ -13,12 +13,13 @@ import "react-date-range/dist/styles.css" // main css file
 import "react-date-range/dist/theme/default.css" // theme css file
 import { format } from "date-fns"
 import { useNavigate } from "react-router-dom"
+import { SearchContext } from "../../context/SearchContext"
 import "./header.scss"
 
 const Header = ({ type }) => {
-  const [destination, setDestination] = useState("");
+  const [destination, setDestination] = useState("")
   const [openDate, setOpenDate] = useState(false)
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -43,8 +44,12 @@ const Header = ({ type }) => {
     })
   }
 
+  const { dispatch } = useContext(SearchContext)
+
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } })
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } })
+
+    navigate("/hotels", { state: { destination, dates, options } })
   }
 
   return (
@@ -81,9 +86,13 @@ const Header = ({ type }) => {
         {/* HEADER TITLE */}
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">Escape the chaos and book your next zenful stay with <span className="headerLogo">StayZen.</span></h1>
+            <h1 className="headerTitle">
+              Escape the chaos and book your next zenful stay with{" "}
+              <span className="headerLogo">StayZen.</span>
+            </h1>
             <p className="headerDesc">
-            Find the perfect balance of comfort and affordability for your next vacation or business trip.
+              Find the perfect balance of comfort and affordability for your
+              next vacation or business trip.
             </p>
             {/* SIGN UP BUTTON */}
             <button className="headerBtn">Sign up/ Register</button>
@@ -105,16 +114,16 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                  date[0].endDate,
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     className="date"
                     minDate={new Date()}
                   />
