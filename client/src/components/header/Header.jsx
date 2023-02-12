@@ -100,7 +100,14 @@ const Header = ({ type }) => {
               next vacation or business trip.
             </p>
             {/* SIGN UP BUTTON */}
-            {!user && <button className="headerBtn">Sign up/ Register</button>}
+            {!user && (
+              <button
+                onClick={(e) => navigate("/signup")}
+                className="headerBtn"
+              >
+                Sign up
+              </button>
+            )}
             {/* HEADER SEARCH BAR */}
             <div className="headerSearch">
               {/* PLACE INPUT */}
