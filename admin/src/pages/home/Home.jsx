@@ -1,6 +1,6 @@
-import React from 'react'
+import "./home.scss"
 
-function Home() {
+const Home = () => {
   return (
     <div>Home</div>
   )
