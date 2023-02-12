@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="navItems">
-            <button className="navButton">Sign up</button>
+            <button onClick={e => navigate('/signup')} className="navButton">Sign up</button>
             <button onClick={e => navigate('/login')} className="navButton">Login</button>
           </div>
         )}
