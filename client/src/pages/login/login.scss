@@ -5,17 +5,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .lContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 50px;
+  border-radius: 5px;
+  background-color: $lightSecondaryColor;
 }
 
 .lInput {
   height: 30px;
   padding: 10px;
+  border-radius: 5px;
 }
 
 .lButton {
