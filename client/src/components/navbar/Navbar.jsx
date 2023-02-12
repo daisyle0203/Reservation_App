@@ -1,10 +1,17 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 import "./navbar.scss"
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext)
+  const { user, dispatch } = useContext(AuthContext)
+
+  const handleClick = () => {
+    dispatch({ type: "LOGOUT", payload: null })
+  }
+
+  const navigate = useNavigate()
 
   return (
     <div className="navbar">
@@ -17,11 +24,14 @@ const Navbar = () => {
           <span className="logo">StayZen</span>
         </Link>
         {user ? (
-          <button className="navButton">{user.username}</button>
+          <div>
+            <button className="navButton">{user.username}</button>
+            <button onClick={handleClick} className="navButton">Logout</button>
+          </div>
         ) : (
           <div className="navItems">
             <button className="navButton">Sign up</button>
-            <button className="navButton">Login</button>
+            <button onClick={e => navigate('/login')} className="navButton">Login</button>
           </div>
         )}
       </div>
