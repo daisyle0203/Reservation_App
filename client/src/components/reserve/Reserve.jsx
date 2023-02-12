@@ -24,7 +24,9 @@ const Reserve = ({ setOpen, hotelId }) => {
 
     // while the date is less than the end date, push the date to the array and add 1 day to the date
     while (date <= end) {
-      dates.push(new Date(date).getTime()) // use getTime() to get the date in milliseconds, easier to compare
+      // use getTime() to get the date in milliseconds, easier to compare
+      dates.push(new Date(date).getTime())
+      date.setDate(date.getDate() + 1)
     }
 
     return dates
@@ -73,7 +75,6 @@ const Reserve = ({ setOpen, hotelId }) => {
   return (
     <div className="reserve">
       <div className="rContainer">
-        {loading && <div>Loading...</div>}
         <FontAwesomeIcon
           icon={faCircleXmark}
           className="rClose"
@@ -108,7 +109,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         <button onClick={handleClick} className="rButton">
           Reserve Now!
         </button>
-        {error && <div>{error}</div>}
+        {/* {error && <div>{error}</div>} */}
       </div>
     </div>
   )
