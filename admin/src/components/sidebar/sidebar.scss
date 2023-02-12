@@ -17,6 +17,9 @@
     color: $primaryColor;
 
     .logo {
+      font-family: $font;
+      font-size: 25px;
+      font-weight: bold;
       color: $primaryColor;
     }
   }
