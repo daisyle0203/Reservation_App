@@ -11,18 +11,23 @@ import {
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import useFetch from "../../hooks/useFetch"
 import { SearchContext } from "../../context/SearchContext"
+import { AuthContext } from "../../context/AuthContext"
+import Reserve from "../../components/reserve/Reserve"
 
 const Hotel = () => {
   const location = useLocation()
   const id = location.pathname.split("/")[2]
   const [slideNumber, setSlideNumber] = useState(0)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false) // for slider modal
+  const [openBook, setOpenBook] = useState(false) // for booking modal
   const { data, loading, error } = useFetch(`/hotels/find/${id}`)
   const { dates, options } = useContext(SearchContext)
   console.log(dates)
+  const { user } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   // function to calculate the number of days between two dates
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24 // 24 hours * 60 minutes * 60 seconds * 1000 milliseconds
@@ -32,7 +37,7 @@ const Hotel = () => {
     return diffDays
   }
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+  const days = dayDifference(dates[0].endDate, dates[0].startDate)
 
   const handleOpen = (i) => {
     setSlideNumber(i)
@@ -49,6 +54,14 @@ const Hotel = () => {
     }
 
     setSlideNumber(newSlideNumber)
+  }
+
+  const handleClick = () => {
+    if (user) {
+      setOpenBook(true)
+    } else {
+      navigate("/login")
+    }
   }
 
   return (
@@ -86,7 +99,7 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button onClick={handleClick} className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -118,14 +131,12 @@ const Hotel = () => {
               </div>
               <div className="hotelDetailsPrice">
                 <h1>Perfect for a {days}-night stay!</h1>
-                <span>
-                  Located in the real heart of Madrid, this property has an
-                  excellent location score of 9.0!
-                </span>
+                <span>{data.desc}</span>
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room  }</b> ({days} nights)
+                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  nights)
                 </h2>
-                <button>Reserve or Book Now!</button>
+                <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
             </div>
           </div>
@@ -133,6 +144,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
+      {openBook && <Reserve setOpen={setOpenBook} hotelId={id} />}
       {error && <div className="error">{error}</div>}
     </div>
   )
