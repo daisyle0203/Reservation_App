@@ -39,6 +39,23 @@ export const updateRoom = async (req, res, next) => {
   }
 }
 
+export const updateRoomAvailability = async (req, res, next) => {
+  try {
+    // use updateOne instead of findByIdAndUpdate because we need to update unavailableDates
+    const updatedRoom = await Room.updateOne(
+      { "roomNumbers._id": req.params.id },
+      {
+        $push: {
+          "roomNumbers.$.unavailableDates": req.body.dates,
+        },
+      }
+    ) 
+    res.status(200).json("Room availability has been updated.")
+  } catch (err) {
+    next(err)
+  }
+}
+
 export const deleteRoom = async (req, res, next) => {
   const hotelId = req.params.hotelid
 
