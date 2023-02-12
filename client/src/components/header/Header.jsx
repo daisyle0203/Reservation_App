@@ -47,8 +47,10 @@ const Header = ({ type }) => {
   const { dispatch } = useContext(SearchContext)
 
   const handleSearch = () => {
+    // dispatch a new action to the reducer to update the state with the new search values 
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } })
-
+    
+    // navigate to the hotels page with the new search values in the state
     navigate("/hotels", { state: { destination, dates, options } })
   }
 

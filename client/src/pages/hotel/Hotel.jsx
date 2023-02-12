@@ -21,9 +21,19 @@ const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0)
   const [open, setOpen] = useState(false)
   const { data, loading, error } = useFetch(`/hotels/find/${id}`)
-  const { dates } = useContext(SearchContext)
+  const { dates, options } = useContext(SearchContext)
   console.log(dates)
-  
+
+  // function to calculate the number of days between two dates
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24 // 24 hours * 60 minutes * 60 seconds * 1000 milliseconds
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime())
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY)
+    return diffDays
+  }
+
+  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+
   const handleOpen = (i) => {
     setSlideNumber(i)
     setOpen(true)
@@ -107,13 +117,13 @@ const Hotel = () => {
                 <p className="hotelDesc">{data.desc}</p>
               </div>
               <div className="hotelDetailsPrice">
-                <h1>Perfect for a 7-night stay!</h1>
+                <h1>Perfect for a {days}-night stay!</h1>
                 <span>
                   Located in the real heart of Madrid, this property has an
                   excellent location score of 9.0!
                 </span>
                 <h2>
-                  <b>$805</b> (7 nights)
+                  <b>${days * data.cheapestPrice * options.room  }</b> ({days} nights)
                 </h2>
                 <button>Reserve or Book Now!</button>
               </div>
@@ -123,6 +133,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
+      {error && <div className="error">{error}</div>}
     </div>
   )
 }
