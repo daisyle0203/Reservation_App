@@ -1,9 +1,7 @@
 import "./chart.scss"
 
 const Chart = () => {
-  return (
-    <div>Chart</div>
-  )
+  return <div className="chart">Chart</div>
 }
 
 export default Chart

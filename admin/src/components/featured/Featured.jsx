@@ -1,9 +1,7 @@
 import "./featured.scss"
 
 const Featured = () => {
-  return (
-    <div>Featured</div>
-  )
+  return <div className="featured">Featured</div>
 }
 
 export default Featured
