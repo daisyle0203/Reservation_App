@@ -1,0 +1,10 @@
+@import "../../style/style.scss";
+
+.home {
+  display: flex;
+
+  .homeContainer {
+    background-color: lightpink;
+    flex: 6;
+  }
+}
