@@ -2,11 +2,12 @@ import Home from "./pages/home/Home"
 import Login from "./pages/login/Login"
 import List from "./pages/list/List"
 import Single from "./pages/single/Single"
-import New from "./pages/new/New"
+import NewUser from "./pages/newUser/NewUser"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { userInputs } from "./formInfo"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"
-import { hotelColumns, roomColumns, userColumns } from "./datatableinfo"
+import { hotelColumns, roomColumns, userColumns } from "./dataTableInfo"
 import NewHotel from "./pages/newHotel/NewHotel"
 import NewRoom from "./pages/newRoom/NewRoom"
 
@@ -56,7 +57,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <New title="Add New User" />
+                    <NewUser inputs={userInputs} title="Add New User" />
                   </ProtectedRoute>
                 }
               />
