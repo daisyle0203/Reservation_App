@@ -6,6 +6,7 @@ import New from "./pages/new/New"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "./context/AuthContext"
+import { hotelColumns, roomColumns, userColumns } from "./datatableinfo"
 import NewHotel from "./pages/newHotel/NewHotel"
 import NewRoom from "./pages/newRoom/NewRoom"
 
@@ -39,7 +40,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List />
+                    <List columns={userColumns} />
                   </ProtectedRoute>
                 }
               />
@@ -65,7 +66,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List />
+                    <List columns={hotelColumns} />
                   </ProtectedRoute>
                 }
               />
@@ -91,7 +92,7 @@ function App() {
                 index
                 element={
                   <ProtectedRoute>
-                    <List />
+                    <List columns={roomColumns} />
                   </ProtectedRoute>
                 }
               />

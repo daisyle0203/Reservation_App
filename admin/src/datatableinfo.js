@@ -19,7 +19,7 @@ export const userColumns = [
   },
   {
     field: "email",
-    headerName: "Email", 
+    headerName: "Email",
     width: 230,
   },
 
@@ -87,4 +87,3 @@ export const roomColumns = [
     width: 100,
   },
 ]
- 
