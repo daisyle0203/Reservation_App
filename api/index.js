@@ -8,6 +8,7 @@ import hotelsRoute from "./routes/hotels.js"
 import usersRoute from "./routes/users.js"
 import roomsRoute from "./routes/rooms.js"
 
+const PORT = process.env.PORT || 8800
 const app = express()
 dotenv.config()
 
@@ -48,7 +49,7 @@ app.use((err, req, res, next) => {
   })
 })
 
-app.listen(8800, () => {
+app.listen(PORT, () => {
   connect()
-  console.log("Server is running on port 8800 🚀")
+  console.log(`Server is running on port ${PORT} 🚀`)
 })
