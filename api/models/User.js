@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+const mongoose = require ("mongoose")
 
 const UserSchema = new mongoose.Schema(
   {
@@ -14,18 +14,15 @@ const UserSchema = new mongoose.Schema(
     },
     country: {
       type: String,
-      required: true,
     },
     img: {
       type: String,
     },
     city: {
       type: String,
-      required: true,
     },
     phone: {
       type: String,
-      required: true,
     },
     password: {
       type: String,
@@ -39,4 +36,4 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true } // it will add createdAt and updatedAt fields
 )
 
-export default mongoose.model("User", UserSchema)
+module.exports = mongoose.model("User", UserSchema)

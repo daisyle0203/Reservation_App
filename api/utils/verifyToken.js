@@ -1,9 +1,9 @@
-import jwt from "jsonwebtoken"
-import { createError } from "../utils/error.js"
+const jwt = require ("jsonwebtoken")
+const { createError } = require ("../utils/error.js")
 
 // verifyToken middleware
-export const verifyToken = (req, res, next) => {
-  // get access_token from cookies from the request object
+const verifyToken = (req, res, next) => {
+  // get access_token = cookies = the request object
   const token = req.cookies.access_token
   // if there is no token stored in cookies, the request is unauthorized
   if (!token) {
@@ -20,7 +20,7 @@ export const verifyToken = (req, res, next) => {
 }
 
 // verifyUser middleware
-export const verifyUser = (req, res, next) => {
+const verifyUser = (req, res, next) => {
   verifyToken(req, res, next, () => {
     // if the user id is the same as the id in the url, then the user is authorized to do the operation
     if (req.user.id === req.params.id || req.user.isAdmin) {
@@ -33,7 +33,7 @@ export const verifyUser = (req, res, next) => {
 }
 
 // verifyAdmin middleware
-export const verifyAdmin = (req, res, next) => {
+const verifyAdmin = (req, res, next) => {
   verifyToken(req, res, next, () => {
     // if the user is admin, then the user is authorized to do the operation
     if (req.user.isAdmin) {
@@ -44,3 +44,5 @@ export const verifyAdmin = (req, res, next) => {
     }
   })
 }
+
+module.exports = { verifyToken, verifyUser, verifyAdmin }

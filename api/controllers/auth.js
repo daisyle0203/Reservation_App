@@ -1,9 +1,9 @@
-import User from "../models/User.js"
-import bcrypt from "bcryptjs"
-import jwt from "jsonwebtoken"
-import { createError } from "../utils/error.js"
+const User = require ("../models/User.js")
+const bcrypt = require ("bcryptjs")
+const jwt = require ("jsonwebtoken")
+const { createError } = require ("../utils/error.js")
 
-export const signup = async (req, res, next) => {
+const signup = async (req, res, next) => {
   try {
     // Hash the password
     const salt = bcrypt.genSaltSync(10)
@@ -24,7 +24,7 @@ export const signup = async (req, res, next) => {
   }
 }
 
-export const login = async (req, res, next) => {
+const login = async (req, res, next) => {
   try {
     // Check if the user exists in the database
     const user = await User.findOne({ username: req.body.username })
@@ -59,3 +59,5 @@ export const login = async (req, res, next) => {
     next(error)
   }
 }
+
+module.exports = { signup, login }

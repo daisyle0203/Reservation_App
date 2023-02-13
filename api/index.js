@@ -1,16 +1,17 @@
-import express from "express"
-import dotenv from "dotenv"
-import mongoose from "mongoose"
-import cors from "cors"
-import cookieParser from "cookie-parser"
-import authRoute from "./routes/auth.js"
-import hotelsRoute from "./routes/hotels.js"
-import usersRoute from "./routes/users.js"
-import roomsRoute from "./routes/rooms.js"
+const dotenv = require("dotenv")
+const express = require("express")
+const mongoose = require("mongoose")
+const cors = require("cors")
+const cookieParser = require("cookie-parser")
+const authRoute = require("./routes/auth.js")
+const hotelsRoute = require("./routes/hotels.js")
+const usersRoute = require("./routes/users.js")
+const roomsRoute = require("./routes/rooms.js")
+const path = require("path")
 
-const PORT = process.env.PORT || 8800
 const app = express()
 dotenv.config()
+const PORT = process.env.PORT || 8800
 
 const connect = async () => {
   try {
@@ -35,6 +36,12 @@ app.use("/api/auth", authRoute)
 app.use("/api/hotels", hotelsRoute)
 app.use("/api/users", usersRoute)
 app.use("/api/rooms", roomsRoute)
+
+app.use(express.static(path.join(__dirname, "/client/build")))
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"))
+})
 
 // middleware for error handling
 app.use((err, req, res, next) => {

@@ -1,0 +1,86 @@
+.newHotel {
+  width: 100%;
+  display: flex;
+}
+.newHotel .newContainer {
+  flex: 6;
+}
+.newHotel .newContainer .top,
+.newHotel .newContainer .bottom {
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+}
+.newHotel .newContainer .top h1,
+.newHotel .newContainer .bottom h1 {
+  color: lightgray;
+  font-size: 20px;
+}
+.newHotel .newContainer .top .left,
+.newHotel .newContainer .bottom .left {
+  flex: 1;
+  text-align: center;
+}
+.newHotel .newContainer .top .left img,
+.newHotel .newContainer .bottom .left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.newHotel .newContainer .top .right,
+.newHotel .newContainer .bottom .right {
+  flex: 2;
+  padding: 0px 20px;
+}
+.newHotel .newContainer .top .right form,
+.newHotel .newContainer .bottom .right form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+.newHotel .newContainer .top .right form .selectRooms,
+.newHotel .newContainer .bottom .right form .selectRooms {
+  width: 100%;
+}
+.newHotel .newContainer .top .right form .selectRooms select,
+.newHotel .newContainer .bottom .right form .selectRooms select {
+  width: 100%;
+  padding: 10px;
+}
+.newHotel .newContainer .top .right form .formInput,
+.newHotel .newContainer .bottom .right form .formInput {
+  width: 40%;
+}
+.newHotel .newContainer .top .right form .formInput label,
+.newHotel .newContainer .bottom .right form .formInput label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.newHotel .newContainer .top .right form .formInput label .icon,
+.newHotel .newContainer .bottom .right form .formInput label .icon {
+  cursor: pointer;
+}
+.newHotel .newContainer .top .right form .formInput input,
+.newHotel .newContainer .bottom .right form .formInput input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #423e3d;
+}
+.newHotel .newContainer .top .right form button,
+.newHotel .newContainer .bottom .right form button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: #719d71;
+  color: #fafafa;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}/*# sourceMappingURL=newHotel.css.map */
